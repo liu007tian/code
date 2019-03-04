@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>rtt</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <input type="button" value="go" @click="lang" />
+      <input type="button" value="stop" @click="stop" />
+      <h3>{{ msg }}</h3>
+    </div>
+  </body>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'gogogogogogogogogogogogogo......hahhaha',
+        intervalId: null
+      },
+      methods: {
+        lang() {
+          this.intervalId = setInterval(() => {
+            console.log(this.intervalId)
+            var start = this.msg.substring(0, 1)
+            var end = this.msg.substring(1)
+            this.msg = end + start
+          }, 400)
+        },
+        stop() {
+          clearInterval(this.intervalId)
+        }
+      }
+    })
+  </script>
+</html>
